@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-    // api.versionsFrom('1.2.1');
+    api.versionsFrom('1.2.1');
     // api.use('http', ['client', 'server']);
     api.use('templating', 'client');
     api.use('chfritz:oauth1', ['client', 'server']);
