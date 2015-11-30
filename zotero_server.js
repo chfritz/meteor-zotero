@@ -26,7 +26,8 @@ OAuth.registerService('zotero', 1, urls, function(oauthBinding, data) {
             profile: {
                 name: oauthBinding.accessTokenRawResponse.username,
                 username: oauthBinding.accessTokenRawResponse.username,
-                id: oauthBinding.accessTokenRawResponse.userID
+                id: oauthBinding.accessTokenRawResponse.userID,
+                zotero: true
             }
         }
     };
