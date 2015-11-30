@@ -9,21 +9,24 @@ var urls = {
 };
 
 OAuth.registerService('zotero', 1, urls, function(oauthBinding, data) {
-    // console.log(oauthBinding, data);
-    
-    var serviceData = {
-        id: oauthBinding.accessTokenRawResponse.userID,
-        screenName: oauthBinding.accessTokenRawResponse.username,
-        accessToken: OAuth.sealSecret(oauthBinding.accessToken),
-        accessTokenSecret: OAuth.sealSecret(oauthBinding.accessTokenSecret)
-    };
 
+    // data looks like this (oauth_verifier might become useful at one point:
+    // { close: '',
+    //   state: 'ey....JvIn0=',
+    //   oauth_token: 'eaa12...f006',
+    //   oauth_verifier: 'd9ad...50a1' } }
+    
     return {
-        serviceData: serviceData,
+        serviceData: {
+            id: oauthBinding.accessTokenRawResponse.userID,
+            username: oauthBinding.accessTokenRawResponse.username,
+            accessToken: OAuth.sealSecret(oauthBinding.accessToken),
+            accessTokenSecret: OAuth.sealSecret(oauthBinding.accessTokenSecret) },
         options: {
             profile: {
                 name: oauthBinding.accessTokenRawResponse.username,
-                username: oauthBinding.accessTokenRawResponse.username
+                username: oauthBinding.accessTokenRawResponse.username,
+                id: oauthBinding.accessTokenRawResponse.userID
             }
         }
     };
