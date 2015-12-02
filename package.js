@@ -2,7 +2,7 @@ Package.describe({
     name: 'chfritz:zotero',
     summary: "Zotero OAuth1 authentication flow",
     git: 'https://github.com/chfritz/meteor-zotero',
-    version: "0.1.2",
+    version: "0.2.0",
     documentation: 'README.md'
 });
 
